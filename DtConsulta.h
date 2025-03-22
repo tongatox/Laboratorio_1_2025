@@ -17,6 +17,7 @@ public:
     string getMotivo();
     void setMotivo(string motivo);
     ~DtConsulta();
+    
 };
 
 #endif
