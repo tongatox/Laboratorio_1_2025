@@ -16,8 +16,9 @@ public:
     DtConsulta(string motivo,DtFecha fechaConsulta);
     string getMotivo();
     void setMotivo(string motivo);
+    DtFecha getFechaConsulta();
+    void setFechaConsulta(DtFecha fechaConsulta);
     ~DtConsulta();
-    
 };
 
 #endif
