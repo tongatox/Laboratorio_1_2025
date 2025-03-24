@@ -16,12 +16,17 @@ string DtConsulta::getMotivo()
     return this->motivo;
 }
 
-void DtConsulta::getFechaConsulta()
+void DtConsulta::setMotivo(string motivo)
+{
+    this->motivo = motivo;
+}
+
+DtFecha DtConsulta::getFechaConsulta()
 {
     return this->fechaConsulta;
 }
 
-DtFecha DtConsulta::setFechaConsulta(DtFecha fechaConsulta)
+void DtConsulta::setFechaConsulta(DtFecha fechaConsulta)
 {
     this->fechaConsulta = fechaConsulta;
 }

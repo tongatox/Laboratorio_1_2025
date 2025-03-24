@@ -35,9 +35,11 @@ public:
 
     void agregarMascota(Mascota *mascota);
     Mascota **getMascota();
+    void eliminarMascotas();
 
     void agregarConsulta(Consulta *consulta);
     Consulta **getConsulta();
+    void eliminarConsultas();
 };
 
 #endif

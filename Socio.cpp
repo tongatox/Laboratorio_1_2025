@@ -64,6 +64,18 @@ Mascota **Socio::getMascota()
     return mascotas;
 }
 
+void Socio::eliminarMascotas()
+{
+    for (int i = 0; i < this->tope_Mascota; i++)
+    {
+
+        this->mascota[i] = this->mascota[this->tope_Mascota - 1];
+        this->mascota[this->tope_Mascota - 1] = NULL;
+        delete this->mascota[this->tope_Mascota - 1];
+        this->tope_Mascota--;
+    }
+}
+
 void Socio::agregarConsulta(Consulta *consulta)
 {
     this->consulta[this->tope_Consulta] = consulta;
@@ -72,12 +84,24 @@ void Socio::agregarConsulta(Consulta *consulta)
 
 Consulta **Socio::getConsulta()
 {
-    Consulta ** consultas = new Consulta *[this->tope_Consulta];
+    Consulta **consultas = new Consulta *[this->tope_Consulta];
     for (int i = 0; i < this->tope_Consulta; i++)
     {
-        Consulta * consulta = new Consulta(this->consulta[i]->getMotivo(),
-                                           this->consulta[i]->getFechaConsulta());
+        Consulta *consulta = new Consulta(this->consulta[i]->getMotivo(),
+                                          this->consulta[i]->getFechaConsulta());
         consultas[i] = consulta;
     }
     return consultas;
+}
+
+void Socio::eliminarConsultas()
+{
+    for (int i = 0; i < this->tope_Consulta; i++)
+    {
+
+        this->consulta[i] = this->consulta[this->tope_Consulta - 1];
+        this->consulta[this->tope_Consulta - 1] = NULL;
+        delete this->consulta[this->tope_Consulta - 1];
+        this->tope_Consulta --;
+    }
 }
