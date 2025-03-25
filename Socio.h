@@ -15,7 +15,7 @@ using namespace std;
 class Socio
 {
 private:
-    int ci;
+    string ci;
     string nombre;
     DtFecha fechaingreso;
     Mascota *mascota[MAX_MASCOTA];

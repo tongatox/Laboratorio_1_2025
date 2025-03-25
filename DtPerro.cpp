@@ -5,7 +5,7 @@
 
 using namespace std;
 
-DtPerro::DtPerro(string nombre, Genero genero, float peso, float racionDiaria, RazaPerro raza, bool vacunaCachorro) : DtMascota(nombre, genero, peso, racionDiaria)
+DtPerro::DtPerro(string nombre, Genero genero, float peso, RazaPerro raza, bool vacunaCachorro) : DtMascota(nombre, genero, peso)
 {
     this->raza = raza;
     this->vacunaCachorro = vacunaCachorro;

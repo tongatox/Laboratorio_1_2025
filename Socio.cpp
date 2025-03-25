@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Socio::Socio(int ci, string nombre, DtFecha fechaingreso)
+Socio::Socio(string ci, string nombre, DtFecha fechaingreso)
 {
     this->ci = ci;
     this->nombre = nombre;
@@ -18,7 +18,7 @@ int Socio::getCi()
     return this->ci;
 }
 
-void Socio::setCi(int ci)
+void Socio::setCi(string ci)
 {
     this->ci = ci;
 }
