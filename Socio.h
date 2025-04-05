@@ -5,7 +5,10 @@
 #include <string>
 #include "DtFecha.h"
 #include "Mascota.h"
+#include "DtPerro.h"
+#include "DtGato.h"
 #include "Consulta.h"
+#include "DtConsulta.h"
 
 using namespace std;
 
@@ -17,29 +20,29 @@ class Socio
 private:
     string ci;
     string nombre;
-    DtFecha fechaingreso;
+    DtFecha  fechaIngreso;
     Mascota *mascota[MAX_MASCOTA];
     Consulta *consulta[MAX_CONSULTA];
     int tope_Mascota;
     int tope_Consulta;
 
 public:
-    Socio(int ci, string nombre, DtFecha fechaingreso);
-    int getCi();
-    void setCi(int ci);
+    Socio(string ci, string nombre, DtFecha fechaIngreso);
+    string getCi();
+    void setCi(string ci);
     string getNombre();
     void setNombre(string nombre);
-    DtFecha getFechaingreso();
-    void setFechaingreso(DtFecha fechaingreso);
+    DtFecha getFechaIngreso();
+    void setFechaIngreso(DtFecha  fechaIngreso);
     ~Socio();
 
+    int getCatMascota();
     void agregarMascota(Mascota *mascota);
-    Mascota **getMascota();
-    void eliminarMascotas();
+    DtMascota **getMascota();
 
+    int getCatConsulta();
     void agregarConsulta(Consulta *consulta);
-    Consulta **getConsulta();
-    void eliminarConsultas();
+    DtConsulta **getConsulta();
 };
 
 #endif

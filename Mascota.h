@@ -20,7 +20,10 @@ public:
     void setGenero(Genero genero);
     float getPeso();
     void setPeso(float peso);
-    ~Mascota();
+    virtual ~Mascota() = 0;
+
+    virtual float calcularRacion() = 0 ;
+    virtual string tipoMascota() = 0;
 };
 
 #endif

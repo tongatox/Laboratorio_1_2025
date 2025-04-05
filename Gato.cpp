@@ -20,3 +20,14 @@ void Gato::setTipoPelo(TipoPelo pelo)
 }
 
 Gato::~Gato() {}
+
+
+float Gato::calcularRacion()
+{
+    return this->getPeso() * 0.015;
+}
+
+string Gato::tipoMascota()
+{
+    return "Gato";
+}

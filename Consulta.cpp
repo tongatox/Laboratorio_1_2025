@@ -5,10 +5,9 @@
 
 using namespace std;
 
-Consulta::Consulta(string motivo, DtFecha fechaConsulta)
+Consulta::Consulta(string motivo, DtFecha fechaConsulta): fechaConsulta(fechaConsulta)
 {
     this->motivo = motivo;
-    this->fechaConsulta = fechaConsulta;
 }
 
 string Consulta::getMotivo()

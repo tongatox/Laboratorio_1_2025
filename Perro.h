@@ -23,6 +23,8 @@ class Perro: public Mascota
         void setVacunaCachorro(bool vacunaCachorro);
         ~Perro();
 
+        float calcularRacion();
+        string tipoMascota();
 };
 
 #endif

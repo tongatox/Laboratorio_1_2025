@@ -21,3 +21,14 @@ void DtGato::setPelo(TipoPelo pelo)
 }
 
 DtGato::~DtGato() {}
+
+string DtGato::tipoMascota()
+{
+    return "Gato";
+}
+
+float DtGato::RacionDiaria()
+{
+    int racion = this->getPeso() * 0.015;
+    return racion;
+}

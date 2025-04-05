@@ -9,7 +9,7 @@ private:
     int anio;
 
 public:
-    DtFecha();
+
     DtFecha(int dia, int mes, int anio);
     int getDia();
     void setDia(int dia);
@@ -18,6 +18,7 @@ public:
     int getAnio();
     void setAnio(int anio);
     ~DtFecha();
+    bool FmayorqueF(DtFecha *fecha);
 
 };
 

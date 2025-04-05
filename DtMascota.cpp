@@ -42,14 +42,4 @@ void DtMascota::setPeos(float peso)
     this->peso = peso;
 }
 
-float DtMascota::getRacionDiaria()
-{
-    return this->racionDiaria;
-}
-
-void DtMascota::setRacionDiaria(float racionDiaria)
-{
-    this->racionDiaria = racionDiaria;
-}
-
 DtMascota::~DtMascota() {}

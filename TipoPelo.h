@@ -1,7 +1,11 @@
+#ifndef TIPOPELO
+#define TIPOPELO
 
-enum TipoPelo {
+enum TipoPelo
+{
     Corto,
     Mediano,
     Largo
 };
 
+#endif

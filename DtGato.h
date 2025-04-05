@@ -17,6 +17,9 @@ public:
     TipoPelo getPelo();
     void setPelo(TipoPelo pelo);
     ~DtGato();
+
+    string tipoMascota();
+    float RacionDiaria();
 };
 
 

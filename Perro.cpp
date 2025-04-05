@@ -32,4 +32,12 @@ void Perro::setVacunaCachorro(bool vacunaCachorro)
 
 Perro::~Perro() {}
 
+float Perro::calcularRacion()
+{
+    return this->getPeso() * 0.025;
+}
 
+string Perro::tipoMascota()
+{
+    return "Perro";
+}

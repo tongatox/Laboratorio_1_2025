@@ -1,4 +1,5 @@
-
+#ifndef RAZAPERRO
+#define RAZAPERRO
 
 enum RazaPerro
 {
@@ -10,3 +11,5 @@ enum RazaPerro
     Pekines,
     Otro
 };
+
+#endif

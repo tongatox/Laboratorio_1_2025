@@ -25,9 +25,10 @@ public:
     void setGenero(Genero genero);
     float getPeso();
     void setPeos(float peso);
-    float getRacionDiaria();
-    void setRacionDiaria(float racionDiaria);
     ~DtMascota();
+
+    virtual string tipoMascota() = 0;
+    virtual float RacionDiaria() = 0;
 
 };
 

@@ -19,6 +19,9 @@ class Gato: public Mascota
         void setTipoPelo(TipoPelo pelo);
         ~Gato();
 
+        float calcularRacion();
+        string tipoMascota();
+
 };
 
 #endif

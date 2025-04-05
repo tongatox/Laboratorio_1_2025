@@ -56,4 +56,38 @@ void DtFecha::setAnio(int anio)
         this->anio = anio;
 }
 
+bool DtFecha::FmayorqueF(DtFecha *fecha) // Devuelve true solo si fecha1 es mas antigua que fecha2, si no, devuelve false.
+{
+    if (fecha->getAnio() < this->getAnio())
+    {
+        return true;
+    }
+    else if (fecha->getAnio() == this->getAnio())
+    {
+        if (fecha->getMes() < this->getMes())
+        {
+            return true;
+        }
+        else if (fecha->getMes() == this->getMes())
+        {
+            if (fecha->getDia() < this->getDia())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
 DtFecha::~DtFecha() {}

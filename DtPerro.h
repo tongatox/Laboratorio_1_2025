@@ -14,12 +14,15 @@ private:
     RazaPerro raza;
     bool vacunaCachorro;
 public:
-    DtPerro(string nombre, Genero genero,float peso , RazaPerro raza,bool vacunaCachorro);
+    DtPerro(string nombre, Genero genero,float peso ,float racionDiaria,RazaPerro raza,bool vacunaCachorro);
     RazaPerro getRaza();
     void setRaza(RazaPerro raza);
     bool getVacunaCachorro();
     void setVacunaCachorro(bool vacunaCachorro);
     ~DtPerro();
+
+    string tipoMascota();
+    float RacionDiaria();
 };
 
 
