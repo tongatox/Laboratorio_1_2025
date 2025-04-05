@@ -45,7 +45,7 @@ void Socio::setFechaIngreso(DtFecha fechaIngreso)
 Socio::~Socio()
 {
 
-    for (int i = 0; i < this->tope_Consulta; i++)
+    for (int i = this->tope_Consulta; i < 0; i--)
     {
 
         this->consulta[i] = this->consulta[this->tope_Consulta - 1];
@@ -53,7 +53,7 @@ Socio::~Socio()
         delete this->consulta[this->tope_Consulta - 1];
         this->tope_Consulta--;
     }
-    for (int i = 0; i < this->tope_Mascota; i++)
+    for (int i = this->tope_Mascota; i < 0; i--)
     {
 
         this->mascota[i] = this->mascota[this->tope_Mascota - 1];
