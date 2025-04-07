@@ -42,6 +42,5 @@ string DtPerro::tipoMascota()
 
 float DtPerro::RacionDiaria()
 {
-    int racion = this->getPeso() * 0.025;
-    return racion;
+    return this->getPeso() * 0.025;
 }

@@ -178,7 +178,7 @@ void menuAgregarSocio()
     }
     else
     {
-        cout << "El socio no existe." << endl;
+        cout << "El socio ya existe." << endl;
         system("sleep 5");
     }
 }
@@ -572,10 +572,19 @@ void menuListarMascotas()
 
         if (colSocios.s[a]->getCi() == ci)
         {
+            cout << endl;
+
             if (DtPerro *perro = dynamic_cast<DtPerro *>(mascotas[i]))
             {
                 cout << "- Nombre: " << perro->getNombre() << endl;
-                cout << "- Genero: " << perro->getGenero() << endl;
+                if (perro->getGenero() == 0)
+                {
+                    cout << "- Genero: Macho" << endl;
+                }
+                else if (perro->getGenero() == 1)
+                {
+                    cout << "- Genero: Hembra" << endl;
+                }
                 cout << "- Peso: " << perro->getPeso() << " kg." << endl;
                 cout << "- Racion Diaria: " << perro->RacionDiaria() << " gramos." << endl;
                 string vacuna;
@@ -587,22 +596,36 @@ void menuListarMascotas()
                 {
                     cout << "- Tiene vacuna del Cachorro: No" << endl;
                 }
-
-                //system("sleep 3");
             }
             else if (DtGato *gato = dynamic_cast<DtGato *>(mascotas[i]))
             {
                 cout << "- Nombre: " << gato->getNombre() << endl;
-                cout << "- Genero: " << gato->getGenero() << endl;
+                if (gato->getGenero() == 0)
+                {
+                    cout << "- Genero: Macho" << endl;
+                }
+                else if (gato->getGenero() == 1)
+                {
+                    cout << "- Genero: Hembra" << endl;
+                }
                 cout << "- Peso: " << gato->getPeso() << " kg." << endl;
                 cout << "- Racion Diaria: " << gato->RacionDiaria() << " gramos." << endl;
-                cout << "- Tipo Pelo: " << gato->getPelo() << endl;
-               // system("sleep 3");
+                if (gato->getPelo() == 0)
+                {
+                    cout << "- Tipo Pelo: Corto." << endl;
+                }
+                else if (gato->getPelo() == 1)
+                {
+                    cout << "- Tipo Pelo: Mediano." << endl;
+                }
+                else if (gato->getPelo() == 2)
+                {
+                    cout << "- Tipo Pelo: Largo." << endl;
+                }
             }
-            
         }
     }
-    system("sleep 3");
+    system("sleep 5");
 }
 
 DtMascota **obtenerMascota(string ci, int &cantMascota)
