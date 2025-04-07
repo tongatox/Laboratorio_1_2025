@@ -559,19 +559,21 @@ void menuListarMascotas()
     cout << "___Menu Mostrar Mascotas___" << endl;
     cout << "Ingrese ci del Socio que desea ver las mascotas: " << endl;
     cin >> ci;
-    DtMascota **mascotas = obtenerMascota(ci, cantMascota);
 
-    for (int i = 0; i <= cantMascota; i++)
+    int a = 0;
+    while (a < colSocios.tope && colSocios.s[a]->getCi() != ci)
+    {
+        a++;
+    }
+
+    if (colSocios.s[a]->getCi() == ci)
     {
 
-        int a = 0;
-        while (a < colSocios.tope && colSocios.s[a]->getCi() != ci)
-        {
-            a++;
-        }
+        DtMascota **mascotas = obtenerMascota(ci, cantMascota);
 
-        if (colSocios.s[a]->getCi() == ci)
+        for (int i = 0; i <= cantMascota; i++)
         {
+
             cout << endl;
 
             if (DtPerro *perro = dynamic_cast<DtPerro *>(mascotas[i]))
@@ -624,8 +626,12 @@ void menuListarMascotas()
                 }
             }
         }
+        system("sleep 5");
     }
-    system("sleep 5");
+    else
+    {
+        cout << "El Socio no existe" << endl;
+    }
 }
 
 DtMascota **obtenerMascota(string ci, int &cantMascota)
