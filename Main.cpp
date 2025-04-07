@@ -430,12 +430,12 @@ void menuIngresarConsultas()
         fecha = new DtFecha(dia, mes, anio);
 
         ingresarConsulta(motivo, ci, fecha);
-    }else
+    }
+    else
     {
         cout << "No existe el Socio." << endl;
         system("sleep 5");
     }
-    
 }
 
 void ingresarConsulta(string motivo, string ci, DtFecha *fecha)
@@ -496,13 +496,12 @@ void menuVerConsultas()
 
 DtConsulta **verConsultasAntesDeFecha(DtFecha *fecha, string ciSocio, int &cantConsultas)
 {
-    int i;
+    int i = 0;
     while (i < colSocios.tope && colSocios.s[i]->getCi() != ciSocio)
         i++;
     if (colSocios.s[i]->getCi() == ciSocio)
     {
-        cantConsultas = colSocios.s[i]->getCatConsulta();
-        return colSocios.s[i]->getConsulta();
+        return colSocios.s[i]->getConsulta(fecha, cantConsultas);
     }
     else
     {
@@ -540,7 +539,7 @@ void eliminarSocio(string ci)
         colSocios.tope--;
 
         cout << "Socio eliminado exitosamente." << endl;
-        system("sleep 1"); 
+        system("sleep 1");
     }
     else
     {
@@ -560,42 +559,26 @@ void menuListarMascotas()
     cout << "___Menu Mostrar Mascotas___" << endl;
     cout << "Ingrese ci del Socio que desea ver las mascotas: " << endl;
     cin >> ci;
-    cout << "Prueba 1" << endl;
     DtMascota **mascotas = obtenerMascota(ci, cantMascota);
-    cout << "Prueba 2" << endl;
 
     for (int i = 0; i <= cantMascota; i++)
     {
-        cout << "Prueba 3" << endl;
+
         int a = 0;
-        cout << "Prueba 4" << endl;
         while (a < colSocios.tope && colSocios.s[a]->getCi() != ci)
         {
-            cout << "Prueba 5" << endl;
             a++;
         }
 
-        cout << "Prueba 6" << endl;
         if (colSocios.s[a]->getCi() == ci)
         {
-
-            cout << "Prueba 7" << endl;
-
-            try
+            if (DtPerro *perro = dynamic_cast<DtPerro *>(mascotas[i]))
             {
-                cout << "Prueba 8" << endl;
-                DtPerro *perro = dynamic_cast<DtPerro *>(mascotas[i]);
-                cout << "Prueba 8.1" << endl;
                 cout << "- Nombre: " << perro->getNombre() << endl;
-                cout << "Prueba 8.2" << endl;
                 cout << "- Genero: " << perro->getGenero() << endl;
-                cout << "Prueba 8.3" << endl;
                 cout << "- Peso: " << perro->getPeso() << " kg." << endl;
-                cout << "Prueba 8.4" << endl;
                 cout << "- Racion Diaria: " << perro->RacionDiaria() << " gramos." << endl;
-                cout << "Prueba 8.5" << endl;
                 string vacuna;
-                cout << "Prueba 8.6" << endl;
                 if (perro->getVacunaCachorro())
                 {
                     cout << "- Tiene vacuna del Cachorro: Si" << endl;
@@ -604,39 +587,39 @@ void menuListarMascotas()
                 {
                     cout << "- Tiene vacuna del Cachorro: No" << endl;
                 }
+
+                //system("sleep 3");
             }
-            catch (bad_cast)
+            else if (DtGato *gato = dynamic_cast<DtGato *>(mascotas[i]))
             {
-                cout << "Prueba 9" << endl;
-                DtGato *gato = dynamic_cast<DtGato *>(mascotas[i]);
                 cout << "- Nombre: " << gato->getNombre() << endl;
                 cout << "- Genero: " << gato->getGenero() << endl;
                 cout << "- Peso: " << gato->getPeso() << " kg." << endl;
                 cout << "- Racion Diaria: " << gato->RacionDiaria() << " gramos." << endl;
                 cout << "- Tipo Pelo: " << gato->getPelo() << endl;
+               // system("sleep 3");
             }
+            
         }
     }
+    system("sleep 3");
 }
 
 DtMascota **obtenerMascota(string ci, int &cantMascota)
 {
-
-    cout << "Prueba 1.1" << endl;
     int i = 0;
-    cout << "Prueba 1.2" << endl;
     while (i < colSocios.tope && colSocios.s[i]->getCi() != ci)
     {
-        cout << "Prueba 1.3" << endl;
         i++;
     }
-    cout << "Prueba 1.4" << endl;
-    if (colSocios.tope == 0 || colSocios.s[i]->getCi() == ci)
+    if (colSocios.s[i]->getCi() == ci)
     {
-        cout << "Prueba 1.5" << endl;
         cantMascota = colSocios.s[i]->getCatMascota();
-        cout << "Prueba 1.6" << endl;
         return colSocios.s[i]->getMascota();
+    }
+    else
+    {
+        cout << "El socio no existe" << endl;
     }
 }
 

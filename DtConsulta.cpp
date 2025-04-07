@@ -30,5 +30,10 @@ void DtConsulta::setFechaConsulta(DtFecha fechaConsulta)
     this->fechaConsulta = fechaConsulta;
 }
 
-DtConsulta::~DtConsulta() {}
+bool DtConsulta::ConsFecha(DtFecha * fecha)
+{
+    return this->fechaConsulta.FmayorqueF(fecha);
+}
 
+
+DtConsulta::~DtConsulta() {}

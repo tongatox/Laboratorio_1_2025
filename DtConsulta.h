@@ -19,6 +19,8 @@ public:
     DtFecha getFechaConsulta();
     void setFechaConsulta(DtFecha fechaConsulta);
     ~DtConsulta();
+
+    bool ConsFecha(DtFecha * fecha);
 };
 
 #endif

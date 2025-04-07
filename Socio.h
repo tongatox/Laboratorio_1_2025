@@ -9,6 +9,8 @@
 #include "DtGato.h"
 #include "Consulta.h"
 #include "DtConsulta.h"
+#include "Perro.h"
+#include "Gato.h"
 
 using namespace std;
 
@@ -42,7 +44,7 @@ public:
 
     int getCatConsulta();
     void agregarConsulta(Consulta *consulta);
-    DtConsulta **getConsulta();
+    DtConsulta **getConsulta(DtFecha * fecha, int & cantConsultas);
 };
 
 #endif

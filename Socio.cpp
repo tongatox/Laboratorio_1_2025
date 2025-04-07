@@ -65,7 +65,6 @@ Socio::~Socio()
 
 void Socio::agregarMascota(Mascota *mascota)
 {
-    cout << "Prueba 1.5.1" << endl;
     if (this->tope_Mascota < 10)
     {
         this->mascota[this->tope_Mascota] = mascota;
@@ -80,21 +79,19 @@ void Socio::agregarMascota(Mascota *mascota)
 
 DtMascota **Socio::getMascota()
 {
-    cout << "Prueba 1.6.1" << endl;
     DtMascota **mascotas = new DtMascota *[this->tope_Mascota];
     for (int i = 0; i < this->tope_Mascota; i++)
     {
-        try
+
+        if (Perro *perro = dynamic_cast<Perro *>(mascota[i]))
         {
-            cout << "Prueba 1.6.2" << endl;
-            DtPerro *perro = dynamic_cast<DtPerro *>(mascotas[i]);
-            mascotas[i] = perro;
+            DtPerro *dtperro = new DtPerro(perro->getNombre(), perro->getGenero(), perro->getPeso(), perro->calcularRacion(), perro->getRaza(), perro->getVacunaCachorro());
+            mascotas[i] = dtperro;
         }
-        catch (bad_cast)
+        else if (Gato *gato = dynamic_cast<Gato *>(mascota[i]))
         {
-            cout << "Prueba 1.6.3" << endl;
-            DtGato *gato = dynamic_cast<DtGato *>(mascotas[i]);
-            mascotas[i] = gato;
+            DtGato *dtgato = new DtGato(gato->getNombre(), gato->getGenero(), gato->getPeso(), gato->calcularRacion(), gato->getTipoPelo());
+            mascotas[i] = dtgato;
         }
     }
     return mascotas;
@@ -118,14 +115,17 @@ int Socio::getCatConsulta()
     return this->tope_Consulta;
 }
 
-DtConsulta **Socio::getConsulta()
+DtConsulta **Socio::getConsulta(DtFecha *fecha, int &cantConsultas)
 {
     DtConsulta **consultas = new DtConsulta *[this->tope_Consulta];
     for (int i = 0; i < this->tope_Consulta; i++)
     {
         DtConsulta *consulta = new DtConsulta(this->consulta[i]->getMotivo(),
                                               this->consulta[i]->getFechaConsulta());
-        consultas[i] = consulta;
+        if (consulta->ConsFecha(fecha))
+        {
+            consultas[i] = consulta;
+        }
     }
     return consultas;
 }
