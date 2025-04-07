@@ -36,7 +36,7 @@ void menu()
     cout << "3. Agregar Consulta" << endl;
     cout << "4. Borrar Socios" << endl;
     cout << "5. Listar Mascotas" << endl;
-    cout << "6. Salir" << endl;
+    cout << "6. Exit" << endl;
     cout << "OPCION: ";
 }
 

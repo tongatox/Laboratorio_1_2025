@@ -12,6 +12,7 @@ class Consulta
 private:
     string motivo;
     DtFecha fechaConsulta;
+    
 public:
     Consulta(string motivo, DtFecha fechaConsulta);
     string getMotivo();
